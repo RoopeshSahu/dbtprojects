@@ -1,3 +1,3 @@
-{{ config{materialized ='table'}}}
-
-select * from qwt.raw.customers
+{{ config( materialized = 'table' ) }}
+select * from 
+{{env_var('DBT_SOURCEDB','QWT')}}.{{env_var('DBT_SRCSCHEMA','RAW')}} .customers
